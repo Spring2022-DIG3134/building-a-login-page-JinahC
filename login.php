@@ -7,7 +7,7 @@
 
     if (isset($_POST["username"]) && isset($_POST["password"]))
     {
-        if ($_POST["username"] === "DIG" && $_POST["username"] === "3134")
+        if ($_POST["username"] === "DIG" && $_POST["password"] === "3134")
             echo("Correct username and password were inputted!");
         else 
             echo("Username and/or password is incorrect :(");
