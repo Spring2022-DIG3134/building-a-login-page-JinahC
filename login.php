@@ -5,13 +5,23 @@
         Show a different message if the username and/or password is incorrect.
     */
 
-    if (isset($_POST["username"]) && isset($_POST["password"]))
+    if (isset($_COOKIE["loggedin"]))
     {
-        if ($_POST["username"] === "DIG" && $_POST["password"] === "3134")
-            echo("Correct username and password were inputted!");
-        else 
-            echo("Username and/or password is incorrect :(");
+        echo("You are logged in using cookies.");
     }
-    else   
-        echo("Enter values in each field please.");
+    else
+    {
+        if (isset($_POST["username"]) && isset($_POST["password"]))
+        {
+            if ($_POST["username"] === "DIG" && $_POST["password"] === "3134")
+            {
+                echo("Correct username and password were inputted!");
+                setcookie("loggedin", "yes");
+            }
+            else 
+                echo("Username and/or password is incorrect :(");
+        }
+        else   
+            echo("Enter values in each field please.");
+    }
 ?>
